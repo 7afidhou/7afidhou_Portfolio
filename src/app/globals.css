@@ -12,7 +12,7 @@
   --color-additional: var(--additional);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
+  --font-poppins: var(--font-poppins);}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -27,5 +27,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
+
+}
+
+.sans{
+  font-family: var(--font-sans);
+}
+.mono{
+  font-family: var(--font-mono);
 }
