@@ -13,17 +13,21 @@ export default function Works() {
     });
   }, []);
   return (
-    <div data-aos="fade-right" className="flex flex-col justify-center h-94 mx-8 ">
-            <p className="text-secondary font-bold text-6xl mb-5"> Recent <span className="text-primary">Works</span></p>
-           <div className="flex gap-2">
-    <button className={`font-bold text-secondary  bg-1/2 px-4 py-2 rounded-2xl cursor-pointer ${allSelected ? 'bg-primary' : 'bg-[#393E46]'}`} onClick={()=>{setAllSelected(true);setWebdevSelected(false);setIotSelected(false);}}>All</button>
-    <button className={`font-bold text-secondary  bg-1/2 px-4 py-2 rounded-2xl cursor-pointer ${webdevSelected ? 'bg-primary' : 'bg-[#393E46]'}`} onClick={()=>{setWebdevSelected(true);setAllSelected(false);setIotSelected(false);}}>Web Development</button>
-    <button className={`font-bold text-secondary  bg-1/2 px-4 py-2 rounded-2xl cursor-pointer ${iotSelected ? 'bg-primary' : 'bg-[#393E46]'}`} onClick={()=>{setIotSelected(true);setAllSelected(false);setWebdevSelected(false);}}>IoT</button>
-   </div>
-
-   <div >
-
-   </div>
+<div data-aos="fade-right" className="flex flex-col justify-center h-[80vh] mx-8 ">
+    <p className="text-secondary font-bold text-6xl mb-6"> Recent <span className="text-primary">Works</span></p>
+    <div className="flex gap-2">
+        <button className={`font-bold text-secondary  bg-1/2 px-4 py-2 rounded-2xl cursor-pointer backdrop-blur-md ${allSelected ? 'bg-primary' : 'bg-[#393E46]'}`} onClick={()=>{setAllSelected(true);setWebdevSelected(false);setIotSelected(false);}}>All</button>
+        <button className={`font-bold text-secondary  bg-1/2 px-4 py-2 rounded-2xl cursor-pointer backdrop-blur-md ${webdevSelected ? 'bg-primary' : 'bg-[#393E46]'}`} onClick={()=>{setWebdevSelected(true);setAllSelected(false);setIotSelected(false);}}>Web Development</button>
+        <button className={`font-bold text-secondary  bg-1/2 px-4 py-2 rounded-2xl cursor-pointer backdrop-blur-md ${iotSelected ? 'bg-primary' : 'bg-[#393E46]'}`} onClick={()=>{setIotSelected(true);setAllSelected(false);setWebdevSelected(false);}}>IoT</button>
     </div>
+
+
+    <div className="flex gap-6 mt-6" >
+        <div className="h-52 w-64 bg-[#393E46] rounded-2xl"></div>
+        <div className="h-52 w-64 bg-[#393E46] rounded-2xl"></div>
+        <div className="h-52 w-64 bg-[#393E46] rounded-2xl"></div>
+
+    </div>
+</div>
   );
 }

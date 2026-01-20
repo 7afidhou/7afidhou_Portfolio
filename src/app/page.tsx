@@ -1,8 +1,9 @@
 import Image from "next/image";
 import MenuBar from "./sections/MenuBar";
 import Hero from "./sections/Hero";
-import About from "./sections/about";
+import About from "./sections/About";
 import Works from "./sections/Works";
+import Contact from "./sections/Contact";
 export default function Home() {
   return (
     <div className="">
@@ -13,6 +14,7 @@ export default function Home() {
 
       <About  />
       <Works/>
+      <Contact/>
     </div>
   );
 }
