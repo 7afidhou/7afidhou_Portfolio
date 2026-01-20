@@ -13,7 +13,7 @@ export default function Works() {
     });
   }, []);
   return (
-<div data-aos="fade-right" className="flex flex-col justify-center h-[80vh] mx-8 ">
+<div data-aos="fade-right" className="flex flex-col justify-center h-screen mx-8 ">
     <p className="text-secondary font-bold text-6xl mb-6"> Recent <span className="text-primary">Works</span></p>
     <div className="flex gap-2">
         <button className={`font-bold text-secondary  bg-1/2 px-4 py-2 rounded-2xl cursor-pointer backdrop-blur-md ${allSelected ? 'bg-primary' : 'bg-[#393E46]'}`} onClick={()=>{setAllSelected(true);setWebdevSelected(false);setIotSelected(false);}}>All</button>
