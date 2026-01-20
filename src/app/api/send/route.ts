@@ -20,7 +20,7 @@ export async function POST(req:Request) {
       to: "mohamedhouari16@gmail.com",
       subject: `New Contact Message from ${name}`,
       text: message,
-      html: `<p>${message}</p><p>From: ${name} - ${email}</p>`,
+      html: `<p>From: ${name} - ${email}</p> <p>${message}</p>`,
     };
 
     // Send the email
