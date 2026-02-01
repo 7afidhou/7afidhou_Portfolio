@@ -13,7 +13,7 @@ export default function Hero() {
       });
     }, []);
   return (
-    <div className='mx-24 mt-10 flex justify-between '>
+    <div id='home' className='mx-24 mt-10 flex justify-between '>
       <div className='mt-20' data-aos="fade-right">
         <p className='text-7xl uppercase text-secondary font-bold'>Web</p>
         <p className='text-8xl uppercase text-primary font-bold'>Developer</p>
