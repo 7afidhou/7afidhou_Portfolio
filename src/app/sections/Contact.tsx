@@ -3,15 +3,40 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Send from "../../../public/send.svg";
-import Image from "next/image";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import { GrSend } from "react-icons/gr";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const notifySuccess = () =>
+    toast.success("Message sent successfully.", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+
+  const notifyError = () =>
+    toast.error("Something went wrong. Try again.", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
 
   useEffect(() => {
     AOS.init({
@@ -24,7 +49,6 @@ export default function Contact() {
     e.preventDefault();
     console.log({ name, email, message });
     setLoading(true);
-    setStatus("idle");
 
     try {
       const res = await fetch("/api/send", {
@@ -35,13 +59,13 @@ export default function Contact() {
 
       if (!res.ok) throw new Error("Failed to send message");
 
-      setStatus("success");
+      notifySuccess();
       setName("");
       setEmail("");
       setMessage("");
     } catch (err) {
       console.error(err);
-      setStatus("error");
+      notifyError();
     } finally {
       setLoading(false);
     }
@@ -106,20 +130,22 @@ export default function Contact() {
           <p className="drop-shadow-2xl">
             {loading ? "Sending..." : "Send Message"}
           </p>
-          <Image src={Send} alt="send" width={20} height={20} />
+          <GrSend />
         </button>
 
-        {status === "success" && (
-          <p className="text-green-500 mt-3 font-bold">
-            Message sent successfully.
-          </p>
-        )}
-
-        {status === "error" && (
-          <p className="text-red-500 mt-3 font-bold">
-            Something went wrong. Try again.
-          </p>
-        )}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </form>
     </div>
   );
